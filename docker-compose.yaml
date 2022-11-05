@@ -1,11 +1,11 @@
 services:
   postgres:
     container_name: postgres
-    image: postgres
+    image: postgres:13.8
     environment:
       POSTGRES_USER: amigoscode
       POSTGRES_PASSWORD: password
-      PGDATA: /data/postgres
+      PGDATA: /data/postgres13
     volumes:
       - postgres:/data/postgres
     ports:
@@ -43,29 +43,29 @@ services:
 #      - "15672:15672"
 #    networks:
 #      - spring
-  #  eureka-server:
-  #    image: amigoscode/eureka-server:latest
-  #    container_name: eureka-server
-  #    ports:
-  #      - "8761:8761"
-  #    environment:
-  #      - SPRING_PROFILES_ACTIVE=docker
-  #    networks:
-  #      - spring
-  #    depends_on:
-  #      - zipkin
-  #  apigw:
-  #    image: amigoscode/apigw:latest
-  #    container_name: apigw
-  #    ports:
-  #      - "8083:8083"
-  #    environment:
-  #      - SPRING_PROFILES_ACTIVE=docker
-  #    networks:
-  #      - spring
-  #    depends_on:
-  #      - zipkin
-  #      - eureka-server
+#  eureka-server:
+#    image: amigoscode/eureka-server:latest
+#    container_name: eureka-server
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#  apigw:
+#    image: amigoscode/apigw:latest
+#    container_name: apigw
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#      - eureka-server
 #  customer:
 #    image: amigoscode/customer:latest
 #    container_name: customer
